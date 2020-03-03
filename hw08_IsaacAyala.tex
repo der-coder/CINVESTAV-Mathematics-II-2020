@@ -1,0 +1,42 @@
+\documentclass[a4paper,12pt]{article}
+%\documentclass[a4paper,12pt]{scrartcl}
+
+\usepackage{xltxtra}
+
+\input{../preamble.tex}
+
+% \usepackage[spanish]{babel}
+
+% \setromanfont[Mapping=tex-text]{Linux Libertine O}
+% \setsansfont[Mapping=tex-text]{DejaVu Sans}
+% \setmonofont[Mapping=tex-text]{DejaVu Sans Mono}
+
+\title{Homework \#08: Collective wisdom}
+\author{Isaac Ayala Lozano}
+\date{2020-03-02}
+
+\begin{document}
+\maketitle
+
+An example of how the estimate for the total number of jelly beans in a jar approximates the true value as the number of samples increases is presented.
+The study considers a jar with 1500 jelly beans stored inside of it, with a variance of $\sigma^2 = 1000$.
+Multiple samples are considered.
+Figure \ref{fig: hist} shows how the group approaches the true value as the sample size increases.
+The histograms presented show the estimated values after being normalised for ease of comparison.
+
+\begin{figure}[htb!]
+\centering
+\import{./img/}{hw08_hist.tex}
+\caption{Histograms.}
+\label{fig: hist}
+\end{figure}
+
+% \printbibliography
+
+\newpage
+\pagebreak
+\appendix
+\section{Octave Code}
+\lstinputlisting[language=Matlab]{hw08_plots.m}
+
+\end{document}

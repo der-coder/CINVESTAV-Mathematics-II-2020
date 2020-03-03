@@ -1,0 +1,144 @@
+\documentclass[a4paper,12pt]{article}
+%\documentclass[a4paper,12pt]{scrartcl}
+
+\usepackage{xltxtra}
+
+\input{../preamble.tex}
+
+% \usepackage[spanish]{babel}
+
+% \setromanfont[Mapping=tex-text]{Linux Libertine O}
+% \setsansfont[Mapping=tex-text]{DejaVu Sans}
+% \setmonofont[Mapping=tex-text]{DejaVu Sans Mono}
+
+\title{Homework \#07: Joint Probability Distributions of Functions of Random Variables}
+\author{Isaac Ayala Lozano}
+\date{2020-02-24}
+
+\begin{document}
+\maketitle
+\begin{itemize}
+ \item Prove that $f_{Y_1, Y_2}(y_1, y_2) = f_{X_1, X_2} (x_1, x_2) | J(x_1,x_2)| ^{-1}
+ $, where $| J(x_1,x_2)| ^{-1}$ is the inverse of the determinant of the Jacobian. Consider $Y_1 = g_1(X_1, X_2)$ and $Y_2 = g_2(X_1, X_2)$ for some functions $g_1$ and $g_2$.
+
+ We begin the proof by considering the following
+
+ \begin{enumerate}
+  \item The equations $y_1 = g_1(x_1, x_2)$ and $y_2 = g_2(x_1, x_2)$ can be uniquely solved for $x_1$ and $x_2$ such that $x_1 = h_1(y_1, y_2)$ and $x_2 = h_2(y_1, y_2)$ .
+  \item The functions $g_1$ and $g_2$ have continuous partial derivatives at all points $(x_1, x_2)$ and are such that
+
+  \begin{equation*}
+   J(x_1, x_2) = \left | \begin{matrix}
+                          \frac{\partial g_1}{\partial x_1} & \frac{\partial g_1}{\partial x_2}\\
+                          \frac{\partial g_2}{\partial x_1} & \frac{\partial g_2}{\partial x_2}\\
+                         \end{matrix}
+                         \right |
+                         \equiv
+                          \frac{\partial g_1}{\partial x_1} \frac{\partial g_2}{\partial x_2}
+                          -
+                          \frac{\partial g_1}{\partial x_2}
+                          \frac{\partial g_2}{\partial x_1}
+                          \neq 0
+  \end{equation*}
+at all points $(x_1, x_2)$.
+ \end{enumerate}
+
+
+ Given the Probability Mass Function
+
+ \begin{equation*}
+  P\{Y_1 \leq y_1, Y_2 \leq y_2 \} = \iint_R f_{X_1, X_2} (x_1, x_2)dx_1 dx_2
+ \end{equation*}
+
+ the \emph{joint density function} can be obtained by differentiating the previous equation.
+
+ \begin{equation*}
+  f_{Y_1, Y_2} (y_1, y_2) = \frac{\partial^2}{\partial y_1 \partial y_2} \iint_R f_{X_1, X_2} (x_1, x_2)dx_1 dx_2
+ \end{equation*}
+
+Given that the original equation is a function of $x_1$ and $x_2$, it is necessary to apply a \emph{one to one transformation}  $T$ on the region $R$ that is being integrated, such that
+
+\begin{equation*}
+ T(g_1, g_2) = (x_1, x_2)
+\end{equation*}
+
+Let $g_1(x_1, x_2)$ and $g_2(x_1, x_2)$ be the equations that map the original coordinates to the new region $S$ and $J(g_1, g_2)$ the determinant of the matrix of partial derivatives of $g_1$ and $g_2$ such that
+
+\begin{equation*}
+ J_g = J(g_1, g_2) = \left |\begin{matrix}
+                \frac{\partial x_1}{\partial g_1} &  \frac{\partial x_1}{\partial g_2}\\
+                \frac{\partial x_2}{\partial g_1} &  \frac{\partial x_2}{\partial g_2}\\
+               \end{matrix}\right |
+               =( J(x_1, x_2))^{-1} = \frac{1}{\left |\begin{matrix}
+                \frac{\partial g_1}{\partial x_1} &  \frac{\partial g_1}{\partial x_2}\\
+                \frac{\partial g_2}{\partial x_1} &  \frac{\partial g_2}{\partial x_2}\\
+               \end{matrix}\right |}
+\end{equation*}
+
+
+Then we have the following solution to the equation, integrating by substitution yields
+
+\begin{align*}
+  \iint_R f_{X_1, X_2} (x_1, x_2)dA &=  \iint_S f_{X_1, X_2} (h_1(g_1, g_2), h_2(g_1, g_2)) J_g dg_1 dg_2\\
+  &= \iint_S f_{X_1, X_2} (h_1(y_1, y_2), h_2(y_1, y_2)) J_g dy_1 dy_2\\
+\end{align*}
+
+Differentiating this double integral will result in the joint density function
+
+\begin{align*}
+ \frac{\partial^2}{\partial y_1 \partial y_2} & \iint_S f_{X_1, X_2} (h_1(y_1, y_2), h_2(y_1, y_2)) J_g dy_1 dy_2 \\
+ &= f_{X_1, X_2} (h_1(y_1, y_2), h_2(y_1, y_2)) J_g  \\
+ &= f_{X_1, X_2} (h_1(g_1, g_2), h_2(g_1, g_2)) J_g      \\
+ &= f_{X_1, X_2} (x_1, x_2) J_g      \\
+ &= f_{X_1, X_2} (x_1, x_2) J(g_1, g_2)   \\
+ &= f_{X_1, X_2} (x_1, x_2) |J(x_1, x_2)|^{-1} \\
+\end{align*}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \item Prove that $\dfrac{d \phi(t)}{dt} \equiv \dfrac{d}{dt} E[\exp(t X]) = E[\dfrac{d}{dt}  \exp(tX)]$
+
+ From \cite{ross2006introduction}, the \emph{moment generating function} is defined as
+
+ \begin{equation*}
+  \phi(t) = E[\exp(tX)] = \begin{cases}
+                                    \sum_x \exp(tx) p(x), & \text{if } X \text{ is discrete}\\
+                                    \int_{-\infty}^{\infty}\exp(tx)f(x)dx, & \text{if } X \text{ is continuous}\\
+                                   \end{cases}
+ \end{equation*}
+
+ We obtain the derivative of the moment generating function.
+
+ \begin{align*}
+  \frac{d \phi(t)}{dt} &= \frac{d}{dt} \sum_x \exp(tx) p(x)\\
+  &= \sum_x \frac{d}{dt} \left (\exp(tx) p(x) \right )\\
+  &= \sum_x \left (
+  \exp(tx) \frac{dp(x)}{dt}  + \frac{d \exp(tx)}{dt}  p(x)
+  \right )
+ \end{align*}
+
+ Given that $p(x)$ is not a function of $t$ ($\frac{d p(x)}{dt}= 0$), the expression becomes
+
+ \begin{align*}
+  \frac{d \phi(t)}{dt} &= \sum_x \left (
+  0  + \frac{d \exp(tx)}{dt}  p(x)
+  \right )\\
+  &= \sum_x x \exp(tx)  p(x) \\
+  &= E[X\exp(tX)]\\
+  &= E[\dfrac{d}{dt} \exp(tX)]
+ \end{align*}
+
+As such, it is proven that
+
+\begin{equation*}
+ \frac{d \phi(t)}{dt} \equiv \frac{d}{dt} E[\exp(t X]) = E[\frac{d}{dt}  \exp(tX)]
+\end{equation*}
+
+
+\end{itemize}
+
+
+\printbibliography
+
+\end{document}

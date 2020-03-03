@@ -1,0 +1,45 @@
+\documentclass[a4paper,12pt]{article}
+%\documentclass[a4paper,12pt]{scrartcl}
+
+\usepackage{xltxtra}
+
+\input{../preamble.tex}
+
+% \usepackage[spanish]{babel}
+
+% \setromanfont[Mapping=tex-text]{Linux Libertine O}
+% \setsansfont[Mapping=tex-text]{DejaVu Sans}
+% \setmonofont[Mapping=tex-text]{DejaVu Sans Mono}
+
+\title{Homework \#03: Independent events}
+\author{Isaac Ayala Lozano}
+\date{2020-01-20}
+
+\begin{document}
+\maketitle
+
+\section{Problem}
+Let A and B be two events in the sample space S. 
+Show that if $P(A) $ and $P(B)$ are
+non-zero, then A and B cannot be mutually exclusive and independent.
+
+\section{Proof}
+
+From \cite{stewart2009probability} we observe that for events A and B to be independent then
+
+\begin{equation}
+ P(A \cap B) = P(A) P(B)
+\end{equation}
+
+Recall that for two events to be mutually exclusive then
+
+\begin{equation}
+ P(A \cap B) = 0
+\end{equation}
+
+Thus for two events to be independent and mutually exclusive at the same time then $P(A) P(B) = 0$.
+The problem states that both $P(A)$ and $P(B)$ are non-zero, hence we conclude that A and B \emph{cannot} be mutually exclusive and independent at the same time because $P(A\cap B)  \neq 0$.
+
+\printbibliography
+
+\end{document}

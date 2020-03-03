@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="793.70081"
+   height="1122.5197"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.4 5da689c313, 2019-01-14"
+   sodipodi:docname="hw02-venn-diagrams.svg">
+  <defs
+     id="defs2">
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath4532">
+      <circle
+         style="fill:#ff0000;fill-opacity:1;stroke:#000000;stroke-width:0.34510872;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;paint-order:normal"
+         id="circle4534"
+         cx="-77.258331"
+         cy="126.60832"
+         r="11.733696" />
+    </clipPath>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1"
+     inkscape:cx="-126.72312"
+     inkscape:cy="514.26235"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     units="px"
+     showborder="false"
+     inkscape:window-width="1366"
+     inkscape:window-height="703"
+     inkscape:window-x="0"
+     inkscape:window-y="36"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g4626"
+       transform="matrix(0.74323848,0,0,0.74323848,-8.6635165,39.617913)">
+      <g
+         id="g4579">
+        <circle
+           style="fill:#ff5555;fill-opacity:1;stroke:#000000;stroke-width:0.34510872;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;paint-order:normal"
+           id="path4520"
+           cx="-104.32655"
+           cy="159.91011"
+           r="11.733696" />
+        <circle
+           r="11.733696"
+           cy="159.91011"
+           cx="-87.922386"
+           id="circle4522"
+           style="fill:#37c837;fill-opacity:1;stroke:#000000;stroke-width:0.34510872;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;paint-order:normal" />
+        <circle
+           r="11.733696"
+           cy="126.60832"
+           cx="-93.662498"
+           id="circle4524"
+           style="fill:#00aad4;fill-opacity:1;stroke:#000000;stroke-width:0.34510872;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;paint-order:normal"
+           clip-path="url(#clipPath4532)"
+           transform="translate(-10.664054,33.301783)" />
+      </g>
+      <text
+         id="text4544"
+         y="139.99695"
+         x="-110.55357"
+         style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         xml:space="preserve"><tspan
+           style="stroke-width:0.26458332"
+           y="139.99695"
+           x="-110.55357"
+           id="tspan4542"
+           sodipodi:role="line">$P(A \cup B)$</tspan></text>
+      <g
+         transform="translate(-10.738635)"
+         id="g4570">
+        <circle
+           r="11.733696"
+           cy="159.91011"
+           cx="-36.600452"
+           id="circle4548"
+           style="fill:#ff5555;fill-opacity:1;stroke:#000000;stroke-width:0.34510872;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;paint-order:normal" />
+        <circle
+           transform="translate(57.062044,33.301783)"
+           clip-path="url(#clipPath4532)"
+           style="fill:#00aad4;fill-opacity:1;stroke:#000000;stroke-width:0.34510872;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;paint-order:normal"
+           id="circle4550"
+           cx="-93.662498"
+           cy="126.60832"
+           r="11.733696" />
+      </g>
+      <g
+         transform="translate(-5.8296298)"
+         id="g4574">
+        <circle
+           style="fill:#37c837;fill-opacity:1;stroke:#000000;stroke-width:0.34510872;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;paint-order:normal"
+           id="circle4552"
+           cx="-0.92615503"
+           cy="159.91011"
+           r="11.733696" />
+        <circle
+           transform="translate(76.332177,33.301783)"
+           clip-path="url(#clipPath4532)"
+           style="fill:#00aad4;fill-opacity:1;stroke:#000000;stroke-width:0.34510872;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;paint-order:normal"
+           id="circle4554"
+           cx="-93.662498"
+           cy="126.60832"
+           r="11.733696" />
+      </g>
+      <text
+         id="text4558"
+         y="161.20718"
+         x="-72.097649"
+         style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         xml:space="preserve"><tspan
+           style="stroke-width:0.26458332"
+           y="161.20718"
+           x="-72.097649"
+           id="tspan4556"
+           sodipodi:role="line">$=$</tspan></text>
+      <text
+         id="text4562"
+         y="161.20718"
+         x="-31.514347"
+         style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         xml:space="preserve"><tspan
+           style="stroke-width:0.26458332"
+           y="161.20718"
+           x="-31.514347"
+           id="tspan4560"
+           sodipodi:role="line">$+$</tspan></text>
+      <text
+         id="text4566"
+         y="161.20718"
+         x="9.0689554"
+         style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         xml:space="preserve"><tspan
+           style="stroke-width:0.26458332"
+           y="161.20718"
+           x="9.0689554"
+           id="tspan4564"
+           sodipodi:role="line">$-$</tspan></text>
+      <text
+         id="text4583"
+         y="140.12614"
+         x="-54.408424"
+         style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         xml:space="preserve"><tspan
+           style="stroke-width:0.26458332"
+           y="140.12614"
+           x="-54.408424"
+           id="tspan4581"
+           sodipodi:role="line">$P(A)$</tspan></text>
+      <text
+         id="text4587"
+         y="140.12614"
+         x="-13.829254"
+         style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         xml:space="preserve"><tspan
+           style="stroke-width:0.26458332"
+           y="140.12614"
+           x="-13.829254"
+           id="tspan4585"
+           sodipodi:role="line">$P(B)$</tspan></text>
+      <circle
+         transform="translate(120.17699,33.301788)"
+         r="11.733696"
+         cy="126.60832"
+         cx="-93.662498"
+         id="circle4540"
+         style="fill:#00aad4;fill-opacity:1;stroke:none;stroke-width:0.34510872;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;paint-order:normal"
+         clip-path="url(#clipPath4532)" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         x="20.331921"
+         y="139.99695"
+         id="text4591"><tspan
+           sodipodi:role="line"
+           id="tspan4589"
+           x="20.331921"
+           y="139.99695"
+           style="stroke-width:0.26458332">$P(A \cap B)$</tspan></text>
+    </g>
+  </g>
+</svg>

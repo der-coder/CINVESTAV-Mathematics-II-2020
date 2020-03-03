@@ -1,0 +1,62 @@
+\documentclass[a4paper,12pt]{article}
+%\documentclass[a4paper,12pt]{scrartcl}
+
+\usepackage{xltxtra}
+
+\input{../preamble.tex}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes,backgrounds}
+
+% \setromanfont[Mapping=tex-text]{Linux Libertine O}
+% \setsansfont[Mapping=tex-text]{DejaVu Sans}
+% \setmonofont[Mapping=tex-text]{DejaVu Sans Mono}
+
+\title{Homework \#02: Compound probability}
+\author{Isaac Ayala Lozano}
+\date{2020-01-15}
+
+\begin{document}
+\maketitle
+
+\def\firstcircle{(0,0) circle (1.5cm)}
+\def\secondcircle{(0:2cm) circle (1.5cm)}
+\def\thirdcircle{(45:2cm) circle (1.5cm)}
+
+Let \emph A and \emph B be two events for a sample space \emph{S}. Proofs are presented for the compund probability of $A \cup B$ employing Venn diagrams for the general case and the particular case where A and B are mutually exclusive.
+
+\section{General case}
+
+The probability of $A \cup B$ is given by  $P(A \cup B) = P(A) + P(B) - P(A \cap B)$. 
+The probability of $A \cap B$ is subtracted because that subset is contained in both A and B ($A \cap B \subset A,  A \cap B \subset B$), hence added twice.
+Thus the compound probability is obtained by adding the probability of A and B subtracted by the probability of $A \cap B$, as shown in figure 1.
+
+
+\section{Particular case}
+
+For the particular case where $A \cap B = \emptyset$, the probability of $A \cup B$ is equivalent to the sum of probabilities of A and B, subtracted by the probability of $A \cap B$ which is zero in this case:
+$P(A \cup B) = P(A) + P(B) - P(A \cap B) = P(A) + P(B) - 0 = P (A) + P (B)$.
+
+% \begin{figure}
+% \centering
+% \begin{tikzpicture}
+%      \begin{scope}[shift={(3cm,-5cm)}, fill opacity=0.5]
+%         \fill[red] \firstcircle;
+%         \fill[green] \secondcircle;
+%         \draw \firstcircle node[center] {$A$};
+%         \draw \secondcircle node [center] {$B$};        
+%     \end{scope}
+% \end{tikzpicture} 
+% \caption{Events A and B in the sample space S.}
+% \label{fig: events}
+% \end{figure}
+
+ \begin{figure}[ht]
+    \centering
+    \import{./img/}{hw02-venn-diagrams.pdf_tex}
+    \caption{Compound probability.}
+    \label{fig: compound probability}
+\end{figure}
+
+
+\end{document}

@@ -1,0 +1,175 @@
+\documentclass[a4paper,12pt]{article}
+%\documentclass[a4paper,12pt]{scrartcl}
+
+\usepackage{xltxtra}
+
+\input{../preamble.tex}
+
+% \usepackage[spanish]{babel}
+
+% \setromanfont[Mapping=tex-text]{Linux Libertine O}
+% \setsansfont[Mapping=tex-text]{DejaVu Sans}
+% \setmonofont[Mapping=tex-text]{DejaVu Sans Mono}
+
+\title{Homework \#04: Random Variable and Discrete Distribution Functions}
+\author{Isaac Ayala Lozano}
+\date{2020-01-27}
+
+\begin{document}
+\maketitle
+
+\section{Problem}
+\begin{enumerate}
+ \item Plot the behaviour of the Binomial, Geometric and Poisson distributions for the following values
+    \begin{itemize}
+     \item Binomial distribution: $n \in [10, 20, 30]$ and $p \in [0.1, 0.3, 0.5]$
+     \item Geometric distribution: $p \in [0.1, 0.3, 0.5]$
+     \item Poisson distribution: $\lambda \in [1, 2, 3]$
+    \end{itemize}
+\item Show that the Poisson distribution is a good approximation to the Binomial distribution for large values of n and small values of p.
+\end{enumerate}
+
+\section{Solution}
+
+\subsection{Plots}
+Figure \ref{fig: binomial plots} shows the plots for the Binomial distribution.\\
+
+\begin{figure}[htb!]
+\centering
+\import{./img/}{hw04_binomial.tex}
+\caption{Binomial distribution.}
+\label{fig: binomial plots}
+\end{figure}
+
+\pagebreak
+
+Figure \ref{fig: geometric plots} shows the plots for the Geometric distribution.\\
+
+\begin{figure}
+\centering
+\import{./img/}{hw04_geometric.tex}
+\caption{Geometric distribution}
+\label{fig: geometric plots}
+\end{figure}
+
+\pagebreak
+
+Figure \ref{fig: poisson plots} shows the plots for the Poisson distribution.\\
+
+\begin{figure}[htb!]
+\centering
+\import{./img/}{hw04_poisson.tex}
+\caption{Poisson distribution}
+\label{fig: poisson plots}
+\end{figure}
+
+\pagebreak
+
+\subsection{Proof}
+
+From \cite{ross2006introduction} we obtain the equations for the Binomial and Poisson distributions, equations \eqref{eq: binomial} and \eqref{eq: poisson} respectively.
+
+\begin{equation}
+P (X) = \binom n i p^i (1 -p)^{n-i}
+\label{eq: binomial}
+\end{equation}
+
+\begin{equation}
+ P (X) = \exp(-\lambda) \dfrac{\lambda ^i}{i !}
+ \label{eq: poisson}
+\end{equation}
+
+Let $\lambda = n p$ such that \eqref{eq: binomial} can written as follows
+
+\begin{equation*}
+ \binom n i p^i (1 -p)^{n-i} = \dfrac{n!}{(n-i)!  i!} \left (\frac{\lambda}{n} \right )^i \left(1 -\dfrac{\lambda}{n}\right)^{n-i}
+\end{equation*}
+
+Rewrite the last term of the equation.
+
+\begin{equation}
+ \dfrac{n!}{(n-i)!  i!} \left (\frac{\lambda}{n} \right )^i \dfrac{(1 - \lambda / n  )^n}{(1 - \lambda / n  )^i}
+ \label{eq: binomial to poisson fraction}
+\end{equation}
+
+Recall that for large values of n the term $(1 - \lambda / n  )^n $ is approximately equal to $ exp(-\lambda)$.
+Thus the equation above can be expressed as
+
+ \begin{equation}
+  \dfrac{n!}{(n-i)!  i!} \left (\frac{\lambda}{n} \right )^i \dfrac{exp(-\lambda)}{(1 - \lambda / n  )^i}
+   \label{eq: binomial to poisson exp}
+ \end{equation}
+
+ The term $ \dfrac{n!}{(n-i)!  i!}$ can be expanded as follows
+
+ \begin{equation*}
+   \dfrac{n!}{(n-i)!  i!} =  \dfrac{n * (n-1)!}{(n-i)!  i!}
+   =  \dfrac{n*(n-1)*(n-2)!}{(n-i)!  i!}
+ \end{equation*}
+
+ This expansion permits us to rewrite the term as
+
+ \begin{equation*}
+  \dfrac{n!}{(n-i)!  i!} =  \dfrac{n*(n-1)* (n-2) \dots (n-i+1)* (n-i)!}{(n-i)!  i!}
+ \end{equation*}
+
+ Notice how this new expression permits us to eliminate  $(n-i)!$ from the equation.
+
+ \begin{equation*}
+  \dfrac{n!}{(n-i)!  i!} = \dfrac{n*(n-1)* (n-2) \dots (n-i+1)}{i!}
+ \end{equation*}
+
+ Equation \eqref{eq: binomial to poisson exp} can now be rewritten as
+
+ \begin{equation}
+   \dfrac{n(n-1) (n-2) \dots (n-i+1)}{i!} \dfrac{\lambda ^i}{n ^i} \dfrac{exp(-\lambda)}{(1 - \lambda / n  )^i}
+ \end{equation}
+
+
+ For large values of n, the term $(1 - \lambda / n  )^i$ is approximately equal to one.
+ This simplifies the equation once again.
+
+ \begin{equation}
+   \dfrac{n(n-1) (n-2) \dots (n-i+1)}{i!} \dfrac{\lambda ^i}{n ^i} exp(-\lambda)
+ \end{equation}
+
+ Exchanging the denominators in the fractions we obtain
+
+ \begin{equation}
+   \dfrac{n(n-1) (n-2) \dots (n-i+1)}{n^i} \dfrac{\lambda ^i}{i!} exp(-\lambda)
+   \label{eq: binomial to poisson denominators}
+ \end{equation}
+
+ Expanding the polynomial equation from the terms $n(n-1)\dots (n-i+1)$
+
+ \begin{equation*}
+  \begin{cases}
+   n (n-1) &= n^2 -n \\
+   n (n-1) (n-2) &= n^3 -3 n^2 + 2n \\
+   \vdots & \\
+   n (n-1) (n-2) \dots (n-i+1) &= n^i - i n^{i-1} + (i-1)n^{i-2} \dots +  n
+  \end{cases}
+ \end{equation*}
+
+ Rewriting the first term of the equation and evaluating the limit as n goes to infinity we have
+
+ \begin{equation}
+\lim_{n\to\infty}  \dfrac{n^i - \beta_1 n^{i-1} + \beta_2 n^{i-2} \dots +  \beta_n n}{n^i} = 1
+ \end{equation}
+
+ Equation \eqref{eq: binomial to poisson denominators} is now the equation for the Poisson distribution due to the result of the limit shown above.
+ We conclude that for large values of n and small values of p, the Poisson distribution can approximate the result of the Binomial distribution.
+
+ \begin{equation}
+  P(X) = \binom n i (p)^i (1-p)^{n-i} \approx \dfrac{\lambda ^i}{i!} exp(-\lambda)
+ \end{equation}
+
+
+\printbibliography
+
+\pagebreak
+\appendix
+\section{Código Octave}
+\lstinputlisting[language=Matlab]{hw04_plots.m}
+
+\end{document}

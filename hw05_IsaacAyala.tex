@@ -1,0 +1,107 @@
+\documentclass[a4paper,12pt]{article}
+%\documentclass[a4paper,12pt]{scrartcl}
+
+\usepackage{xltxtra}
+
+\input{../preamble.tex}
+
+% \usepackage[spanish]{babel}
+% \decimalpoint
+
+% \setromanfont[Mapping=tex-text]{Linux Libertine O}
+% \setsansfont[Mapping=tex-text]{DejaVu Sans}
+% \setmonofont[Mapping=tex-text]{DejaVu Sans Mono}
+
+\title{Homework \#05: Continuous Random Variable}
+\author{Isaac Ayala Lozano}
+\date{2020-02-03}
+
+\begin{document}
+\maketitle
+
+\section{Problem}
+\begin{enumerate}
+ \item Plot the probability distribution functions for the Exponential and Gamma Distributions.
+ Consider $\lambda \in \{0.5, 1, 2\}$ for the Exponential Distribution and $\alpha \in \{2, 3, 7, 7\}, \lambda \in \{0.5, 2, 2, 1\}$ for the Gamma Distribution.
+ \item Provide proof that the Gamma distribution is indeed a probability density function.
+ \item Relate the Uniform, Exponenial and Gamma Distributions to physical phenomena or engineering problems.
+\end{enumerate}
+
+\pagebreak
+
+\section{Solution}
+
+Plots are presented for the Probability Density Function of the Exponential (figure \ref{fig: exp}) and Gamma (figure \ref{fig: gamma}) Distributions.
+
+
+\begin{figure}[htb!]
+\centering
+\import{./img/}{hw05_exp.tex}
+\caption{Exponential Distribution.}
+\label{fig: exp}
+\end{figure}
+
+\begin{figure}[htb!]
+\centering
+\import{./img/}{hw05_gamma.tex}
+\caption{Gamma Distribution.}
+\label{fig: gamma}
+\end{figure}
+
+\pagebreak
+
+We provide proof that the Gamma Distribution probability function is indeed a probability density function.
+From \cite{stewart2009probability}, the Gamma Distribution is defined as
+
+\begin{equation}
+ f(x) \equiv f(x;\beta, \alpha) = \dfrac{1}{\beta^\alpha \Gamma(\alpha)} x^{\alpha-1} \exp(-x/\beta), \quad x>0
+\end{equation}
+
+By establishing $\alpha = r$ and $\beta = 1/ \mu$, the function can be rewritten as
+
+\begin{equation}
+ f(x) = \dfrac{\mu (\mu x)^{r-1} \exp(-\mu x)}{\Gamma(r)}
+\end{equation}
+
+this form is also known as the \emph{Erlang-r} distribution.
+Integrating this new expression we have the following
+
+\begin{align}
+ \int_0^\infty f(x)dx &= \int_0^\infty \dfrac{\mu (\mu x)^{r-1} \exp(-\mu x)}{\Gamma(r)}dx\\
+ u &= \mu x \\
+ du &= \mu dx\\
+ &= \dfrac{1}{\Gamma(r)} \int_0^\infty (u)^{r-1} \exp(-u) du
+\end{align}
+
+Recall the definition of the Gamma function
+
+\begin{equation}
+ \Gamma(\alpha) = \int_0^\infty y^{\alpha-1}exp(-y) dy
+\end{equation}
+
+Thus the equation is simplified as
+
+\begin{align}
+ \int_0^\infty f(x)dx &= \dfrac{\Gamma(r)}{\Gamma(r)}\\
+ &= 1
+\end{align}
+
+
+We present examples of the three distributions studied.
+
+\begin{itemize}
+ \item Uniform Distribution. Events in which all results have the same probability of occurring such as the odds of any number of a six sided die being rolled or the result of a coin toss.
+ \item Exponential Distribution. Events related to time and events, such as number of number of calls received during an hour, rainfall in a year, distribution of gas molecules at fixed temperature and pressure.
+ \item Gamma Distribution. Also used for events related to time and rate, such as the amount of customers arriving to a restaurant in a specific time interval. Consider a restaurant where customers arrive at x customer per hour, what is the probability of k customers arriving in a given time interval?
+\end{itemize}
+
+
+\printbibliography
+
+\pagebreak
+\appendix
+\section{Octave Code}
+\lstinputlisting[language=Matlab]{hw05_plots.m}
+
+
+\end{document}

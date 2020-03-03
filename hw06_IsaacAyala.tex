@@ -1,0 +1,106 @@
+\documentclass[a4paper,12pt]{article}
+%\documentclass[a4paper,12pt]{scrartcl}
+
+\usepackage{xltxtra}
+
+\input{../preamble.tex}
+
+% \usepackage[spanish]{babel}
+
+% \setromanfont[Mapping=tex-text]{Linux Libertine O}
+% \setsansfont[Mapping=tex-text]{DejaVu Sans}
+% \setmonofont[Mapping=tex-text]{DejaVu Sans Mono}
+
+\title{Homework \#06: Multivariate distribution}
+\author{Isaac Ayala Lozano}
+\date{}
+
+\begin{document}
+\maketitle
+
+\textbf{Problem 1.}
+Plot the Probability Density Function of a Multivariate Normal Distribution.
+Consider $x$ and $y$ as the random variables, $\mu_x = 0, \/ \sigma_x^2 = 1$ and $\mu_y = 1, \/ \sigma_y^2 = 2$.\\
+
+From \cite{mathworld2020BivariateNormal}, the Bivariate Normal Distribution
+\footnote{a multivariate distribution of two variables is known as a bivariate distribution}
+is defined as
+
+\begin{equation}
+ P(x_1, x_2) = \frac{1}{2 \pi \sigma_1 \sigma_2 \sqrt{1-\rho^2}} \exp \left [ - \frac{z}{2 (1-\rho^2)} \right]
+ \label{eq: multi pdf}
+\end{equation}
+
+
+where
+
+\begin{align}
+\label{eq: pdf z}
+ z & \equiv \frac{(x_1-\mu_1)^2}{\sigma_1^2} - \frac{2 \rho (x_1 - \mu_1)(x_2 - \mu_2)}{\sigma_1 \sigma_2} + \frac{(x_2-\mu_2)^2}{\sigma_2^2}\\
+  \rho & \equiv cor(x_1, x_2) = \frac{V_{12}}{\sigma_1 \sigma_2} = \frac{\sigma_{11}\sigma_{21} + \sigma_{12}\sigma_{22}}{\sigma_1 \sigma_2}
+\end{align}
+
+Given that $\sigma_{i\/j} = 0, \/ i \neq j $, then $\rho = 0$ and \eqref{eq: multi pdf} can be rewritten as
+
+\begin{equation}
+ P(x_1, x_2) = \frac{1}{2\pi \sigma_1 \sigma_2} \exp \left[- \frac{z}{2}  \right]
+\end{equation}
+
+In a similar fashion, \ref{eq: pdf z} can be rewritten as
+
+\begin{equation}
+ z = \frac{(x_1-\mu_1)^2}{\sigma_1^2} + \frac{(x_2-\mu_2)^2}{\sigma_2^2}
+\end{equation}
+
+
+Figure \ref{fig: multi} presents the PDF for the given values, employing the built-in function \emph{mvnpdf} and an implementation of the equations developed previously.
+
+\begin{figure}[htb!]
+\centering
+\import{./img/}{hw06_multi.tex}
+\caption{Multivariate Normal Distribution.}
+\label{fig: multi}
+\end{figure}
+
+\pagebreak
+
+\textbf{Problem 2}
+Plot the distributions $F_X$ and $F_Y$ of the function in problem 1.\\
+
+Given that $x$ and $y$ are independent random variables with a normal distribution, both $F_X$ and $F_Y$ are obtained evaluating the normal pdf with their respective values.
+Figure \ref{fig: normal} shows the plots for both of them.
+
+\begin{figure}[htb!]
+\centering
+\import{./img/}{hw06_normal.tex}
+\caption{Distributions $F_X$ and $F_Y$.}
+\label{fig: normal}
+\end{figure}
+
+\pagebreak
+\textbf{Problem 3}
+What would the plot of Multivariate Normal Distribution of 3 variables look like?\\
+
+A 3D plot would be insufficient to visualize the distribution, given that it would be in 4D.
+An approximation in 3D would be slices of the volume with a colormap on its surface to express the values of $P(x, y, z)$ at every coordinate, as shown in figure \ref{fig: slice}.
+
+\begin{figure}[htb!]
+\centering
+\import{./img/}{hw06_slice.tex}
+\caption{Slice visualization of $P(x, y, z)$ at $x, y, z = 0$.}
+\label{fig: slice}
+\end{figure}
+
+
+\pagebreak
+
+\printbibliography
+
+\pagebreak
+\appendix
+\section{Octave Code}
+\lstinputlisting[language=Matlab]{hw06_plots.m}
+
+
+
+\end{document}
