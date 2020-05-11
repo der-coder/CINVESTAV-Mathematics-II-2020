@@ -1,0 +1,87 @@
+\documentclass[a4paper,12pt]{article}
+%\documentclass[a4paper,12pt]{scrartcl}
+
+\usepackage{xltxtra}
+
+\input{../preamble.tex}
+
+% \usepackage[spanish]{babel}
+
+% \setromanfont[Mapping=tex-text]{Linux Libertine O}
+% \setsansfont[Mapping=tex-text]{DejaVu Sans}
+% \setmonofont[Mapping=tex-text]{DejaVu Sans Mono}
+
+\title{Homework \#10}
+\author{Isaac Ayala Lozano}
+\date{2020-03-23}
+
+\begin{document}
+\maketitle
+
+The example from \cite{towardsdatascience2018markov} was recreated in Octave.
+
+Two transition matrices are considered: $T_1$ for the original example and $T_2$ to simulate the redesigned web interface case.
+
+\begin{align}
+\label{eq: original matrix}
+ T_1 & = \begin{bmatrix}
+        0.89 & 0.75 & 0.49 \\
+        0.10 & 0.22 & 0.44 \\
+        0.01 & 0.03 & 0.07
+     \end{bmatrix}\\
+     \label{eq: redesign matrix}
+ T_2 &= \begin{bmatrix}
+        0.65 & 0.45 & 0.29 \\
+        0.34 & 0.42 & 0.44 \\
+        0.01 & 0.13 & 0.27
+     \end{bmatrix}
+\end{align}
+
+For both simulations, the initial state $\mathbf{i}$ is set to have
+188969 inactive users, 81356 active users, and 14210 very active users.
+
+\section{Changes in userbase}
+A simulation for the changes seen in the usebase within a period of 10 months is presented.
+We note that the final state is calculated with
+
+\begin{equation*}
+ \mathbf{f} = \mathbf{T}_1^n \mathbf{i}
+\end{equation*}
+
+where $\mathbf{f}$ is the final state of the system, and $\mathbf{i}$ is the initial state.
+The results of the simulation are presented in Figure \ref{fig: markov}.
+
+\begin{figure}[htb!]
+\centering
+\import{./img/}{hw10_markov.tex}
+\caption{Userbase in 10 months.}
+\label{fig: markov}
+\end{figure}
+
+\newpage
+\pagebreak
+
+\section{Website redesign}
+
+A simulation was realized to observe the impact a website redesign could have in the changes within the userbase.
+Given the probabilities presented in \eqref{eq: redesign matrix} a simulation for 10 months was performed.
+The results are presented in Figure \ref{fig: redesign}.
+
+\begin{figure}[htb!]
+\centering
+\import{./img/}{hw10_redesign.tex}
+\caption{Website redesign.}
+\label{fig: redesign}
+\end{figure}
+
+
+
+\printbibliography
+
+\newpage
+\pagebreak
+\appendix
+\section{Octave Code}
+\lstinputlisting[language=Matlab]{hw10_plots.m}
+
+\end{document}

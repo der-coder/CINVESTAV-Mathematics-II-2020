@@ -1,0 +1,75 @@
+\documentclass[a4paper,12pt]{article}
+%\documentclass[a4paper,12pt]{scrartcl}
+
+\usepackage{xltxtra}
+
+\input{../preamble.tex}
+
+% \usepackage[spanish]{babel}
+
+% \setromanfont[Mapping=tex-text]{Linux Libertine O}
+% \setsansfont[Mapping=tex-text]{DejaVu Sans}
+% \setmonofont[Mapping=tex-text]{DejaVu Sans Mono}
+
+\title{Homework \# 09}
+\author{Isaac Ayala Lozano}
+\date{2020-03-17}
+
+\begin{document}
+\maketitle
+
+\begin{itemize}
+ \item Is \textbf{Example 4.4} originally a Markov chain model?
+
+ If the state $n$ is set to only consider the current day, then it is not a Markov chain model.
+ This is due to how the problem is described, where the weather predicition for the day after depends on the current day and the day before.
+ If the model is set to only consider the present day, ignoring the previous day, then the model is not adhering to the conditions already established.
+ The state of the system is thus the weather conditions for the past two days.
+ Only then can the model be considered a Markov Chain model.
+
+ \item How is the transition matrix $\mathbf{P}$ obtained for \textbf{Example 4.4}?
+
+ Consider the \emph{four} states assigned to the system. Given that the transition matrix takes into account all possible states of the system then all permutations of size 2 must be included in the transtion matrix.
+ Such that
+
+ \begin{equation*}
+  \mathbf{P} = \begin{pmatrix}
+                P_{0} & 0 & 1-P_{0} & 0 \\
+                P_{1} & 0 & 1-P_{1} & 0 \\
+                0 & P_{2} & 0 & 1-P_{2} \\
+                0 & P_{3} & 0 & 1-P_{3} \\
+               \end{pmatrix}
+ \end{equation*}
+
+The remaining zeroes are added to the matrix to preserve the $4 \times 4$ matrix due to the four states of the system.
+
+\item How is the transition matrix for a random walk constructed?
+
+Let us assume the random walk is limited to 1-dimensional path with values $x \in \{0,1,2,3\}$ and that the probability of taking a step forward is the same as the probability of taking a step back $p = \frac{1}{2}$.
+The transition matrix is then built for each possible state.
+Consider for example the state where we are positioned in 0, given that we are at the lower bound of the path, it is certain that the next step must be forward.
+A similar conidition applies to the upper bound, where the only valid transition is a step backwards.
+
+\begin{equation*}
+ \mathbf{P} = \begin{pmatrix}
+               P_{00} & P_{01} & P_{02} & P_{03} \\
+               P_{10} & P_{11} & P_{12} & P_{13} \\
+               P_{20} & P_{21} & P_{22} & P_{23} \\
+               P_{30} & P_{31} & P_{32} & P_{33} \\
+              \end{pmatrix}
+              =
+              \begin{pmatrix}
+               0 & 1 & 0 & 0 \\
+               \frac{1}{2} & 0 & \frac{1}{2} & 0 \\
+               0 & \frac{1}{2} & 0 & \frac{1}{2} \\
+               0 & 0 & 1 & 0
+              \end{pmatrix}
+\end{equation*}
+
+This can easily be extented to a 1-dimensional walk within the set of $x \in \{0, \pm 1, \pm 2, \dots\}$.
+\end{itemize}
+
+
+% \printbibliography
+
+\end{document}

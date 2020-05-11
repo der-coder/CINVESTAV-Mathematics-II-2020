@@ -1,0 +1,122 @@
+\documentclass[a4paper,12pt]{article}
+%\documentclass[a4paper,12pt]{scrartcl}
+
+\usepackage{xltxtra}
+
+\input{../preamble.tex}
+
+\usepackage[spanish]{babel}
+
+% \setromanfont[Mapping=tex-text]{Linux Libertine O}
+% \setsansfont[Mapping=tex-text]{DejaVu Sans}
+% \setmonofont[Mapping=tex-text]{DejaVu Sans Mono}
+
+\title{Homework \#11}
+\author{Isaac Ayala Lozano}
+\date{2020-03-24}
+
+\begin{document}
+\maketitle
+
+The spectra of frequencies is evaluated for several equations.
+The follwoing sections present the results for each function evaluated.
+The samplig frequency for all tests was 10 Hz.
+
+ \section{Exponential functions}
+
+ For the function
+
+\begin{equation*}
+ x(t) = \begin{cases}
+         A \exp (-\alpha t) & t \geq 0\\
+         0 & t < 0
+        \end{cases}
+\end{equation*}
+
+the results are shown in Figure \ref{fig: exp}.
+The parameters for the simulation were
+
+\begin{itemize}
+ \item $A = $2
+ \item $\alpha = 5$
+\end{itemize}
+
+
+\begin{figure}[htb!]
+\centering
+\import{./img/}{hw11_exp.tex}
+\caption{Exponential function.}
+\label{fig: exp}
+\end{figure}
+
+\newpage
+\pagebreak
+
+\section{Trigonometric functions}
+
+Given a function of the form
+
+\begin{equation*}
+ x(t) = \begin{cases}
+         A \exp(-\alpha t) \cos (bt) & t \geq 0\\
+         0 & t < 0
+        \end{cases}
+\end{equation*}
+
+the graph obtained is similar to the one presented in Figure \ref{fig: cos}.
+
+\begin{figure}[htb!]
+\centering
+\import{./img/}{hw11_cos.tex}
+\caption{Trigonometric function.}
+\label{fig: cos}
+\end{figure}
+
+The parameters for the simulation are:
+\begin{itemize}
+ \item $A = $2
+ \item $\alpha = 5$
+ \item $b = 10$
+\end{itemize}
+
+
+\newpage
+\pagebreak
+
+\section{Cosntant coefficients and step functions}
+
+Given a function of the form
+
+\begin{equation*}
+ x(t) = \begin{cases}
+         A &  c \geq t \geq 0\\
+         0 & c < t < 0
+        \end{cases}
+\end{equation*}
+
+where
+
+\begin{itemize}
+ \item $A = $2
+ \item $c = 5$
+\end{itemize}
+
+the results of such function are presented in Figure \ref{fig: A}.
+
+
+\begin{figure}[htb!]
+\centering
+\import{./img/}{hw11_A.tex}
+\caption{Constant coefficients.}
+\label{fig: A}
+\end{figure}
+
+% \printbibliography
+
+\newpage
+\pagebreak
+\appendix
+\section{Octave Code}
+\lstinputlisting[language=Matlab]{hw11_plots.m}
+
+\end{document}

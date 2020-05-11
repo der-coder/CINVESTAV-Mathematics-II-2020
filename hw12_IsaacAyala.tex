@@ -1,0 +1,163 @@
+\documentclass[a4paper,12pt]{article}
+%\documentclass[a4paper,12pt]{scrartcl}
+
+\usepackage{xltxtra}
+
+\input{../preamble.tex}
+
+% \usepackage[spanish]{babel}
+
+% \setromanfont[Mapping=tex-text]{Linux Libertine O}
+% \setsansfont[Mapping=tex-text]{DejaVu Sans}
+% \setmonofont[Mapping=tex-text]{DejaVu Sans Mono}
+
+\title{Homework \#12}
+\author{Isaac Ayala Lozano}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+ \item Propose a random process (Figure \ref{fig: samples}) and prove that it is ergodic.
+
+ Let $y(\zeta, t) = \sum_{n=1}^N a_n \cos (\omega_n t + \Psi(\zeta))$ be the proposed random process, where
+
+ \begin{itemize}
+  \item $a_n$ is the amplitude of each cosine function.
+  \item $\omega_n$ is the frequency corresponding to each $n$.
+  \item $\Psi(\zeta) \in R $ is the random noise added to the process.
+ \end{itemize}
+
+ \begin{figure}[htb!]
+\centering
+\import{./img/}{hw12_samples.tex}
+\caption{Random functions from the ensemble.}
+\label{fig: samples}
+\end{figure}
+
+ We prove that the process is ergodic by verifying that for the ensemble of sample functions $y_k$, the mean value $\mu_y (k)$ and the autocorrelation function $R_{yy}(\tau, k)$ do not differ over different sample functions \cite{bendat2011random}.
+
+
+
+ The mean value of the sample function is obtained as follows
+
+ \begin{align*}
+  \mu_y(k) &= \lim _{T \rightarrow \infty} \frac{1}{T} \int_0^T y_k (t) dt \\
+  &= \lim _{T \rightarrow \infty} \frac{1}{T} \int_0^T \sum_{n=1}^N a_n \cos(\omega_n t + \Psi (\zeta)) dt\\
+  &= \lim _{T \rightarrow \infty} \frac{1}{T}  \sum_{n=1}^N \int_0^T a_n \cos(\omega_n t + \Psi (\zeta)) dt\\
+  &= \lim _{T \rightarrow \infty} \frac{1}{T}  \sum_{n=1}^N \left. \frac{a_n}{\omega_n} \sin(\omega_n t + \Psi (\zeta))  \right\rvert_{0}^{T} \\
+  &= 0
+ \end{align*}
+
+ Given that $N < \infty$, the sum of all terms will also be number less than infinity.
+ Thus, as $T$ tends towards infinity the mean value of the random process approaches zero.
+ This holds true for all values of $\Psi(\zeta)$.
+
+
+
+\begin{figure}[htb!]
+\centering
+\import{./img/}{hw12_ergodic.tex}
+\caption{Mean vlaue for different amount of samples.}
+\label{fig: ergodic}
+\end{figure}
+
+ For the autocorrelation function, a similar process is followed.
+
+ \begin{align*}
+  R_{yy} (\tau, k) & = \lim _{T \rightarrow \infty} \frac{1}{T} \int_0^T y_k (t) y_k (t + \tau) dt\\
+  &= \lim _{T \rightarrow \infty} \frac{1}{T} \int_0^T \sum_{n=1}^N a_n \cos(\omega_n t + \Psi (\zeta))
+  \sum_{n=1}^N a_n \cos(\omega_n (t+ \tau) + \Psi (\zeta))
+  dt
+ \end{align*}
+
+We present a simplified version of the proof when $N$ is equal to one, though the proof holds for all values of $N$.
+We begin by applying the trigonometric identity of $\cos(u\pm v) = \cos(u)\cos(v) \mp \sin(u) \sin(v)$ , such that $u = \omega_n t + \Psi(\zeta)$ and $v = \omega_n \tau$.
+
+ \begin{align*}
+  R_{yy} (\tau, k) &= \lim _{T \rightarrow \infty} \frac{1}{T} \int_0^T  (a \cos(u))(a\cos(u)\cos(v) - a\sin(u)\sin(v)) dt\\
+  &= \lim _{T \rightarrow \infty} \frac{1}{T} \int_0^T  (a^2 (\cos (u))^2 \cos(v) - a^2 \cos(u)\sin(u)\sin(v)) dt\\
+  &= \lim _{T \rightarrow \infty} \frac{a^2}{T} ( \cos(v)\int_0^T (\cos(u))^2 dt -  \sin(v) \int_0^T \cos(u) \sin(u) dt )
+ \end{align*}
+
+ Evaluating each integral yields the following results.
+
+ \begin{align*}
+\int_0^T (\cos(u))^2 dt &= \int_0^T (\cos(\omega t + \Psi(\zeta)))^2 dt \\
+&= \left. \frac{2 (\omega t + \Psi(\zeta)) + \sin (2(\omega t + \Psi(\zeta)))}{4 \omega}  \right\rvert_{0}^{T}\\
+&= \frac{T}{2} + \frac{\sin(2(\omega T + \Psi(\zeta)))}{4\omega} - \frac{\sin(2\Psi(\zeta))}{4\omega} \\
+%
+\int_0^T \cos(u) \sin(u) dt &= \int_0^T \cos(\omega t + \Psi(\zeta)) \sin(\omega t + \Psi(\zeta)) dt\\
+&= \left .  - \frac{\cos (2 (\omega t + \Psi(\zeta)))}{4 \omega} \right\rvert_{0}^{T}\\
+&= \frac{\cos(2\Psi (\zeta))}{4\omega} - \frac{\cos (2 (\omega T + \Psi(\zeta)))}{4 \omega}
+ \end{align*}
+
+Substituting these results into the original equation and evaluating the limit yields
+
+\begin{equation*}
+ R_{yy} (\tau, k) =  \frac{a^2}{2} \cos(\omega \tau)
+\end{equation*}
+
+This is due to the fact that every other term for the integrals lacks a $T$ in the numerator of their fractions.
+Given the absence of it, as $T$ approaches infinity the value of all the other terms will approach zero.
+
+This result can be generalized for any value of N.
+From the original equation we notice that the equation was a sum of integrals, hence for values of different from one it is only necessary to add the results of those other integrals.
+
+\begin{equation*}
+ R_{yy} (\tau, k) =  \sum_{n=1}^N \frac{a_n^2}{2} \cos(\omega_n \tau)
+\end{equation*}
+
+Observe that the autocorrelation function is not dependent on time, but on the lag between measurements.
+It does not vary accross sample functions because they all present the same behaviour described in the random process' equation.
+
+Given that both $\mu_y (k)$ and $R_{yy}(k)$ do not vary between sample functions, as has been proven, the proposed random process is indeed ergodic.
+
+
+
+\item Present plots of the probability density functions for a sine wave, a sine wave plus random noise, and a sample of white\footnote{Also called Gaussian} noise.
+
+\item Present the autocorrelation plots for the three previous functions.
+
+\begin{figure}[htb!]
+\centering
+\import{./img/}{hw12_sin.tex}
+\caption{Sine function.}
+\label{fig: sin}
+\end{figure}
+
+\newpage
+\pagebreak
+
+\begin{figure}[htb!]
+\centering
+\import{./img/}{hw12_noise.tex}
+\caption{Sine function with noise.}
+\label{fig: noise}
+\end{figure}
+
+\newpage
+\pagebreak
+
+\begin{figure}[htb!]
+\centering
+\import{./img/}{hw12_white.tex}
+\caption{White noise.}
+\label{fig: white}
+\end{figure}
+
+\end{enumerate}
+
+
+
+\printbibliography
+
+\newpage
+\pagebreak
+\appendix
+\section{Octave Code}
+\lstinputlisting[language=Matlab]{hw08_plots.m}
+
+% https://ocw.mit.edu/courses/mechanical-engineering/2-22-design-principles-for-ocean-vehicles-13-42-spring-2005/readings/r6_spectrarandom.pdf
+\end{document}

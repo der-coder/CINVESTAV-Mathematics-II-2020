@@ -1,0 +1,86 @@
+\documentclass[a4paper,12pt]{article}
+%\documentclass[a4paper,12pt]{scrartcl}
+
+\usepackage{xltxtra}
+
+\input{../preamble.tex}
+\usepackage[most]{tcolorbox}
+
+% \usepackage[spanish]{babel}
+
+% \setromanfont[Mapping=tex-text]{Linux Libertine O}
+% \setsansfont[Mapping=tex-text]{DejaVu Sans}
+% \setmonofont[Mapping=tex-text]{DejaVu Sans Mono}
+
+\title{Homework \#13}
+\author{Isaac Ayala Lozano}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\textbf{Problem.} Explain why a system can be completely characterized with its impulse response.
+
+\begin{tcolorbox}[colback=black!5!white,colframe=black!75!black]
+  A LTI system is fully characterized by knowing its impulse response $h(t)$ because any input to the system can be represented as a sum of impulses. Likewise, the output of the system can also be represented as the sum of all impulse responses corresponding to the inputs.
+
+  \begin{equation}
+   x (t) = \sum_{i = 0}^M \alpha_i \delta(t-k_i) \rightarrow y(t) = \sum_{i = 0}^M \alpha_i h(t-k_i)
+  \end{equation}
+
+\end{tcolorbox}
+
+We begin by assuming that the system $\mathfrak{F}$ is a Linear Time Invariant (LTI) system.
+As such, the superposition principle applies.
+This implies that the system has the following properties:
+\begin{align*}
+ \mathfrak{F} (x_1 + x_2) = \mathfrak{F}(x_1) + \mathfrak{F}(x_2)  & \quad \text{Additivity}\\
+ \mathfrak{F}(\alpha \, x) = \alpha \mathfrak{F}(x)& \quad \text{Homogeneity}
+\end{align*}
+
+
+For a given system $\mathfrak{F}$, the output of the system is defined as $y = \mathfrak{F}\{x\}$.
+For an input $x_n$, there will be a corresponding output $y_n$.
+
+Consider now the unit impulse function $\delta$.
+The function is defined as
+
+\begin{equation*}
+ \delta(t) = \begin{cases}
+              1 & t = 0 \\
+              0 & t \neq 0
+             \end{cases}
+\end{equation*}
+
+If the unit impulse function is given as an input ($x = \delta (t)$) to the system $\mathfrak{F}$, an output known as the unit impulse response $y = h(t)$ will be obtained.
+Due to the principle of superposition, we know that if the input is shifted in time or scaled by a constant then the output will change accordingly.
+
+\begin{align*}
+ \delta (t-k) \rightarrow h(t-k) \\
+ \alpha \delta (t) \rightarrow \alpha h(t)
+\end{align*}
+
+Likewise, due to additivity the following is also true
+
+\begin{equation*}
+ \alpha_1 \delta (t - k_1) +  \alpha_2 \delta (t-k_2) \rightarrow y = \alpha_1 h(t-k_1)  + \alpha_2 h(t+k_2)
+\end{equation*}
+
+An input $x(t)$ can be represented as a sum of impulse functions, each scaled accordingly for each instant of time of the function.
+
+\begin{equation*}
+ x (t) = \sum_{i = 0}^M \alpha_i \delta(t-k_i)
+\end{equation*}
+
+Likewise, the output of the system to an input $x(t)$ can be represented as the sum of the outputs for each impulse function.
+
+\begin{equation*}
+ y(t) = \sum_{i = 0}^M \alpha_i h(t-k_i)
+\end{equation*}
+
+As such, for a LTI system it is possible to fully characterize its behaviour by simply knowing the impulse response of the system.
+
+
+% \printbibliography
+
+\end{document}

@@ -1,0 +1,143 @@
+\documentclass[a4paper,12pt]{article}
+%\documentclass[a4paper,12pt]{scrartcl}
+
+\usepackage{xltxtra}
+
+\input{../preamble.tex}
+
+% \usepackage[spanish]{babel}
+
+% \setromanfont[Mapping=tex-text]{Linux Libertine O}
+% \setsansfont[Mapping=tex-text]{DejaVu Sans}
+% \setmonofont[Mapping=tex-text]{DejaVu Sans Mono}
+
+\title{Homework \#15}
+\author{Isaac Ayala Lozano}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+ \item Explain why $G_{xx}(f)$ is a constant for Example 6.3 in \cite{bendat2011random}.
+
+ The function $G_{xx}(f)$ is a constant for the example because $G_{xx}(f)$ is the autospectral density function of the input.
+ This function is defined as
+
+ \begin{equation*}
+  G_{xx} = 2 S_{xx}(f)
+ \end{equation*}
+
+ Recall that
+
+\begin{equation*}
+ S_{xx}(f) = 2 \int_0^\infty R_{xx}(\tau) \cos(2 \pi f \tau ) d\tau
+\end{equation*}
+
+ As such, $G_{xx}$ becomes
+
+ \begin{equation*}
+  G_{xx} = 4 \int_0^\infty R_{xx}(\tau) \cos(2 \pi f \tau ) d\tau
+ \end{equation*}
+
+
+ And $R_{xx}$ is defined as
+
+\begin{equation*}
+ R_{xx}(\tau) = E[x_k(t) x_k(t+\tau)]
+\end{equation*}
+
+The expected value of the input, white noise, is a constant $\mu$ that depends on the samples. Thus, $G_{xx}$ is a constant because the Fourier transformation of the original input results in a constant as well.
+
+\newpage
+
+\item Explain how the output spectral function $G_{yy}$ for Example 6.3 results in the output autocorrelation function $R_{yy}$ shown below.
+
+\begin{align*}
+ G_{yy}(f) &= \abs{H(f)}_{f-d}^2 G = \frac{G}{\abs{1-(f/f_n)^2}^2 + (2 \zeta f/f_n)^2 } \quad 0 \leq f < \infty \\
+ R_{yy}(\tau) &= \frac{G \pi f_n \exp(-2\pi f_n \zeta \abs{\tau})}{4 \zeta} F(\tau, \zeta) \\
+ F(\tau, \zeta) &=
+  \cos(2 \pi f_n \sqrt{1-\zeta^2} \abs{\tau})
+ +
+ \frac{\zeta}{\sqrt{1-\zeta^2}}
+ \sin(2 \pi f_n \sqrt{1-\zeta^2} \abs{\tau})
+\end{align*}
+
+Recall that the the autocorrelation function can be expressed as
+
+\begin{equation*}
+ R_{yy}(\tau) = \int_0^\infty G_{yy} (f) \cos(2 \pi f \tau) df
+\end{equation*}
+
+Substituting known values in the expression
+
+\begin{align*}
+ R_{yy}(\tau) &= \int_0^\infty \abs{H(f)}_{f-d}^2 G \cos(2 \pi f \tau) df \\
+ &= G \int_0^\infty \abs{H(f)}_{f-d}^2 \cos(2 \pi f \tau) df \\
+ &= G \int_0^\infty
+ \frac{\cos(2 \pi f \tau)  }{\abs{1-(f/f_n)^2}^2 + (2 \zeta f/f_n)^2 }
+ df
+\end{align*}
+
+Solving the integral, we obtain the following
+
+\begin{align*}
+ R_{yy}(\tau) &= \frac{G \pi f_n \exp(-2\pi f_n \zeta \abs{\tau})}{4 \zeta}
+ \cos(2 \pi f_n \sqrt{1-\zeta^2} \abs{\tau}) \\
+ & \qquad + \frac{G \pi f_n \exp(-2\pi f_n \zeta \abs{\tau})}{4 \zeta}
+ \frac{\zeta}{\sqrt{1-\zeta^2}}
+ \sin(2 \pi f_n \sqrt{1-\zeta^2} \abs{\tau})
+\end{align*}
+
+which can then be factorized to
+
+\begin{align*}
+  R_{yy}(\tau) &= \frac{G \pi f_n \exp(-2\pi f_n \zeta \abs{\tau})}{4 \zeta} F(\tau, \zeta) \\
+ F(\tau, \zeta) &=
+  \cos(2 \pi f_n \sqrt{1-\zeta^2} \abs{\tau})
+ +
+ \frac{\zeta}{\sqrt{1-\zeta^2}}
+ \sin(2 \pi f_n \sqrt{1-\zeta^2} \abs{\tau})
+\end{align*}
+
+\newpage
+
+\item Present plots for both $G_{yy}$ and $R_{yy}$
+
+\begin{figure}[htb!]
+\centering
+\import{./img/}{hw15_comparison.tex}
+\caption{Comparison.}
+\label{fig: comparison}
+\end{figure}
+
+\begin{figure}[htb!]
+\centering
+\import{./img/}{hw15_Gyy.tex}
+\caption{Output Spectral function.}
+\label{fig: gyy}
+\end{figure}
+
+
+\begin{figure}[htb!]
+\centering
+\import{./img/}{hw15_Ryy.tex}
+\caption{Output Autocorrelation function.}
+\label{fig: ryy}
+\end{figure}
+
+\end{enumerate}
+
+
+\newpage
+\pagebreak
+
+\printbibliography
+
+\newpage
+\pagebreak
+\appendix
+\section{Octave Code}
+\lstinputlisting[language=Matlab]{hw15_plots.m}
+
+\end{document}
